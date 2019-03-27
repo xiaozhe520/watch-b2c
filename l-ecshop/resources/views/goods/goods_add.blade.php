@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>
-    <span class="action-span"><a href="goods.php?act=list">商品列表</a></span>
+    <span class="action-span"><a href="GoodsController.php?act=list">商品列表</a></span>
     <span class="action-span1"><a href="index.php?act=main">SHOP 管理中心 </a> </span><span id="search_id" class="action-span1"> - 编辑商品信息 </span>
     <div style="clear:both"></div>
 </h1>
@@ -66,8 +66,7 @@
                     <td>
                         <select name="brand_id" onchange="hideBrandDiv()">
                           @foreach($b_data as $v)
-                                <option value="{{$v->b_id}}">{{$v->goods_brand}}</option>
-
+                                <option value="{{$v->brand_id}}">{{$v->brand_name}}</option>
                             @endforeach
                         </select>
                     </td>

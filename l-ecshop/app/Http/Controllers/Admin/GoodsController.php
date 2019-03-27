@@ -22,7 +22,8 @@ class GoodsController extends Controller
     }
     public function add(Request $request)
     {
-        $b_data = DB::select("select * from brand");
+        $b_data = DB::select("select brand_id,brand_name from brand");
+//        dd($b_data);exit();
         $c_data = DB::select("select * from type");
 
         $goods_name = Input::get('goods_name');
