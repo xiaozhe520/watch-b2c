@@ -54,7 +54,7 @@ class BrandController extends Controller
 	public function list(){
         $page = $_GET['page'] ?? 1;
 		//获取数据
-		$data = DB::table('brand')->get();
+		$data = DB::table('brand')->where('status',1)->get();
         //每页显示条数
         $size = 4;
         //偏移量
@@ -67,7 +67,7 @@ class BrandController extends Controller
         $prev = ($page-1) >0 ? $page-1 : 1;
         //下一页
         $next = ($page+1) <$count ? $page+1 : $num;
-        $info = DB::select("select * from brand limit $offset,$size");
+        $info = DB::select("select * from brand where status = 1 limit $offset,$size");
 		//print_r($info);die;
 		return view('brand/list',['info'=>$info,'count'=>$count,'num'=>$num,'prev'=>$prev,'next'=>$next,'page'=>$page,'size'=>$size]);
 	}
@@ -76,7 +76,8 @@ class BrandController extends Controller
 	public function delete(){
       $brand_id = $_GET['id'];
       //echo $brand_id;
-      $res = DB::table('brand')->where('brand_id',$brand_id)->delete();
+       $res = DB::table('brand')->where('brand_id',$brand_id)->update(['status'=>0]);
+      //$res = DB::table('brand')->where('brand_id',$brand_id)->delete();
       if($res){
 			echo "<script>alert('删除成功');location.href='list'</script>";
 		}else{
