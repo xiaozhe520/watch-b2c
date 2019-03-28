@@ -36,6 +36,9 @@ Route::any('category/add','Admin\CategoryController@add');
 //商品品牌
 Route::any('brand/list','Admin\BrandController@list');
 Route::any('brand/add','Admin\BrandController@add');
+Route::any('brand/delete','Admin\BrandController@delete');
+Route::any('brand/edit','Admin\BrandController@edit');
+Route::any('brand/edit_do','Admin\BrandController@edit_do');
 
 //商品属性
 Route::any('attribute/list','Admin\AttributeController@list');
