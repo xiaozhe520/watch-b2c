@@ -23,8 +23,8 @@ class GoodsController extends Controller
     public function add(Request $request)
     {
         $b_data = DB::select("select brand_id,brand_name from brand");
-//        dd($b_data);exit();
-        $c_data = DB::select("select * from type");
+
+        $c_data = DB::select("select * from category");
 
         $goods_name = Input::get('goods_name');
         $goods_sn = "zzq".time()."+".rand(1,100);
@@ -66,10 +66,51 @@ class GoodsController extends Controller
                 //这句话返还的是bool型
                 Storage::disk('upload')->put($fileName,file_get_contents($path));
                 $goods_img = '/app/uploads/'.$fileName;
-                DB::table('goods')->insert(['goods_img'=>$goods_img,'goods_name'=>$goods_name,'goods_sn'=>$goods_sn,'cat_id'=>$cat_id,'brand_id'=>$brand_id,'suppliers_id'=>$suppliers_id,'shop_price'=>$shop_price,'user_price'=>$user_price,'market_price'=>$market_price,'promote_price'=>$promote_price,'promote_start_date'=>$promote_start_date,'promote_end_date'=>$promote_end_date]);
+//                DB::table('goods')->insert([]);
+
+                $goods_weight = Input::get('goods_weight');
+                $warn_number = Input::get('warn_number');
+                $is_best = Input::get('is_best');
+                $is_on_sale = Input::get('is_on_sale');
+                $is_alone_sale = Input::get('is_alone_sale');
+                $is_shipping = Input::get('.');
+                $keywords = Input::get('keywords');
+                $goods_brief = Input::get('goods_brief');
+                $seller_note = Input::get('seller_note');
+                $goods_number = Input::get('goods_number');
+
+                $goods_type = Input::get('goods_type');
+                $attr_value_list = Input::get('attr_value_list[]');
+
+
+                DB::table('goods')->insert(['goods_weight'=>$goods_weight,'warn_number'=>$warn_number,'is_best'=>$is_best,'is_on_sale'=>$is_on_sale,'is_alone_sale'=>$is_alone_sale,'is_shipping'=>$is_shipping,'keywords'=>$keywords,'goods_brief'=>$goods_brief,'seller_note'=>$seller_note,'goods_number'=>$goods_number,'goods_img'=>$goods_img,'goods_name'=>$goods_name,'goods_sn'=>$goods_sn,'cat_id'=>$cat_id,'brand_id'=>$brand_id,'suppliers_id'=>$suppliers_id,'shop_price'=>$shop_price,'user_price'=>$user_price,'market_price'=>$market_price,'promote_price'=>$promote_price,'promote_start_date'=>$promote_start_date,'promote_end_date'=>$promote_end_date,'goods_type'=>$goods_type,'attr_value_list'=>$attr_value_list]);
+
             }
         }
+
 
         return view('goods/goods_add',['b_data'=>$b_data,'c_data'=>$c_data]);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,6 @@
     <div id="tabbar-div">
         <p>
             <span class="tab-front" id="general-tab">通用信息</span>
-            <span class="tab-back" id="detail-tab">详细描述</span>
             <span class="tab-back" id="mix-tab">其他信息</span>
             <span class="tab-back" id="properties-tab">商品属性</span>
             <span class="tab-back" id="gallery-tab">商品相册</span>
@@ -32,7 +31,7 @@
 
     <!-- tab body -->
     <div id="tabbody-div">
-        <form enctype="multipart/form-data" action="goods_add" method="post" name="theForm">
+        <form enctype="multipart/form-data" action="add" method="post" name="theForm" id="form_uploadImg">
             <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
             @csrf
             <!-- 通用信息 -->
@@ -53,9 +52,9 @@
                         <select name="cat_id" onchange="hideCatDiv()">
                             <?php foreach ($c_data as $v){ ?>
                                 @if($v->parent_id==0)
-                                    <option value="{{$v->t_name}}">{{$v->t_name}}</option>
+                                    <option value="{{$v->cat_id}}">{{$v->cat_name}}</option>
                                     @else
-                                    <option value="{{$v->t_name}}">&nbsp;&nbsp;&nbsp;&nbsp;{{$v->t_name}}</option>
+                                    <option value="{{$v->cat_id}}">&nbsp;&nbsp;&nbsp;&nbsp;{{$v->cat_name}}</option>
                                  @endif
                             <?php } ?>
                         </select>
@@ -117,13 +116,6 @@
                 </tr>
                 </tbody></table>
 
-            <!-- 详细描述 -->
-            <table width="90%" id="detail-table" style="display: none;">
-                <tbody><tr>
-                    <td><input type="hidden" id="goods_desc" name="goods_desc" value="" style="display:none"><input type="hidden" id="goods_desc___Config" value="" style="display:none"><iframe id="goods_desc___Frame" src="../includes/fckeditor/editor/fckeditor.html?InstanceName=goods_desc&amp;Toolbar=Normal" width="100%" height="320" frameborder="0" scrolling="no" style="margin: 0px; padding: 0px; border: 0px; background-color: transparent; background-image: none; width: 100%; height: 320px;"></iframe></td>
-                </tr>
-                </tbody></table>
-
             <!-- 其他信息 -->
             <table width="90%" id="mix-table" style="display: none;" align="center">
                 <tbody><tr>
@@ -180,8 +172,6 @@
                     <td>
                         <select name="goods_type" onchange="getAttrList(32)">
                             <option value="0">请选择商品类型</option>
-
-
                         </select><br>
                         <span class="notice-span" style="display:block" id="noticeGoodsType">请选择商品的所属类型，进而完善此商品的属性</span>
                     </td>
@@ -194,65 +184,7 @@
                                 <td class="label">上市日期</td>
                                 <td>
                                     <input type="hidden" name="attr_id_list[]" value="172">
-                                    <select name="attr_value_list[]">
-                                        <option value="">请选择...</option>
-                                        <option value="2008年01月">2008年01月</option>
-                                        <option value="2008年02月">2008年02月</option>
-                                        <option value="2008年03月">2008年03月</option>
-                                        <option value="2008年04月">2008年04月</option>
-                                        <option value="2008年05月">2008年05月</option>
-                                        <option value="2008年06月">2008年06月</option>
-                                        <option value="2008年07月">2008年07月</option>
-                                        <option value="2008年08月">2008年08月</option>
-                                        <option value="2008年09月">2008年09月</option>
-                                        <option value="2008年10月" selected="selected">2008年10月</option>
-                                        <option value="2008年11月">2008年11月</option>
-                                        <option value="2008年12月">2008年12月</option>
-                                        <option value="2007年01月">2007年01月</option>
-                                        <option value="2007年02月">2007年02月</option>
-                                        <option value="2007年03月">2007年03月</option>
-                                        <option value="2007年04月">2007年04月</option>
-                                        <option value="2007年05月">2007年05月</option>
-                                        <option value="2007年06月">2007年06月</option>
-                                        <option value="2007年07月">2007年07月</option>
-                                        <option value="2007年08月">2007年08月</option>
-                                        <option value="2007年09月">2007年09月</option>
-                                        <option value="2007年10月">2007年10月</option>
-                                        <option value="2007年11月">2007年11月</option>
-                                        <option value="2007年12月">2007年12月</option>
-                                    </select>
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">存储卡格式</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="180">
-                                    <input name="attr_value_list[]" type="text" value="MicroSD" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">内存容量</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="181">
-                                    <input name="attr_value_list[]" type="text" value="78MB" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">操作系统</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="182">
-                                    <input name="attr_value_list[]" type="text" value="Symbian OS v9.3" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">K-JAVA</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="183">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
+                                    <input type="date" name="attr_value_list[]">
                                     <input type="hidden" name="attr_price_list[]" value="0">
                                 </td>
                             </tr>
@@ -264,7 +196,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">屏幕颜色</td>
+                                <td class="label">颜色</td>
                                 <td>
                                     <input type="hidden" name="attr_id_list[]" value="186">
                                     <select name="attr_value_list[]">
@@ -276,51 +208,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="label">屏幕材质</td>
+                                <td class="label">材质</td>
                                 <td>
                                     <input type="hidden" name="attr_id_list[]" value="187">
                                     <select name="attr_value_list[]">
                                         <option value="">请选择...</option>
                                         <option value="TFT">TFT</option>
                                     </select>
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">屏幕分辨率</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="188">
-                                    <select name="attr_value_list[]">
-                                        <option value="">请选择...</option>
-                                        <option value="320×240 像素">320×240 像素</option>
-                                        <option value="240×400 像素">240×400 像素</option>
-                                        <option value="240×320 像素">240×320 像素</option>
-                                        <option value="176x220 像素">176x220 像素</option>
-                                    </select>
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">屏幕大小</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="189">
-                                    <input name="attr_value_list[]" type="text" value="2.6英寸" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">中文输入法</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="190">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">情景模式</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="191">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
                                     <input type="hidden" name="attr_price_list[]" value="0">
                                 </td>
                             </tr>
@@ -332,196 +226,9 @@
                                     <input type="hidden" name="attr_price_list[]" value="0">
                                 </td>
                             </tr>
+
                             <tr>
-                                <td class="label">蓝牙接口</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="193">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">数据线接口</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="194">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">电子邮件</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="195">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">办公功能</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="197">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">数码相机</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="198">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">像素</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="199">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">传感器</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="200">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">变焦模式</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="201">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">视频拍摄</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="202">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">MP3播放器</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="203">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">视频播放</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="204">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">CPU频率</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="205">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">收音机</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="206">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">耳机接口</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="207">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">闪光灯</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="208">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">浏览器</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="209">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label"><a href="javascript:;" onclick="addSpec(this)">[+]</a>颜色</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="185">
-                                    <select name="attr_value_list[]">
-                                        <option value="">请选择...</option>
-                                        <option value="黑色" selected="selected">黑色</option>
-                                        <option value="白色">白色</option>
-                                        <option value="蓝色">蓝色</option>
-                                        <option value="金色">金色</option>
-                                        <option value="粉色">粉色</option>
-                                        <option value="银色">银色</option>
-                                        <option value="灰色">灰色</option>
-                                        <option value="深李色">深李色</option>
-                                        <option value="黑红色">黑红色</option>
-                                        <option value="黑蓝色">黑蓝色</option>
-                                        <option value="白紫色">白紫色</option>
-                                    </select>
-                                    属性价格 <input type="text" name="attr_price_list[]" value="" size="5" maxlength="10">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label"><a href="javascript:;" onclick="addSpec(this)">[+]</a>配件</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="210">
-                                    <select name="attr_value_list[]">
-                                        <option value="">请选择...</option>
-                                        <option value="线控耳机">线控耳机</option>
-                                        <option value="蓝牙耳机" selected="selected">蓝牙耳机</option>
-                                        <option value="数据线">数据线</option>
-                                    </select>
-                                    属性价格 <input type="text" name="attr_price_list[]" value="100" size="5" maxlength="10">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label"><a href="javascript:;" onclick="removeSpec(this)">[-]</a>配件</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="210">
-                                    <select name="attr_value_list[]">
-                                        <option value="">请选择...</option>
-                                        <option value="线控耳机">线控耳机</option>
-                                        <option value="蓝牙耳机">蓝牙耳机</option>
-                                        <option value="数据线" selected="selected">数据线</option>
-                                    </select>
-                                    属性价格 <input type="text" name="attr_price_list[]" value="12" size="5" maxlength="10">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label"><a href="javascript:;" onclick="removeSpec(this)">[-]</a>配件</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="210">
-                                    <select name="attr_value_list[]">
-                                        <option value="">请选择...</option>
-                                        <option value="线控耳机" selected="selected">线控耳机</option>
-                                        <option value="蓝牙耳机">蓝牙耳机</option>
-                                        <option value="数据线">数据线</option>
-                                    </select>
-                                    属性价格 <input type="text" name="attr_price_list[]" value="50" size="5" maxlength="10">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">手机制式</td><td><input type="hidden" name="attr_id_list[]" value="173">
+                                <td class="label">手表制式</td><td><input type="hidden" name="attr_id_list[]" value="173">
                                     <select name="attr_value_list[]">
                                         <option value="">请选择...</option>
                                         <option value="GSM,850,900,1800,1900" selected="selected">GSM,850,900,1800,1900</option>
@@ -529,38 +236,6 @@
                                         <option value="双模（GSM,900,1800,CDMA 1X）">双模（GSM,900,1800,CDMA 1X）</option>
                                         <option value="3G(GSM,900,1800,1900,TD-SCDMA )">3G(GSM,900,1800,1900,TD-SCDMA )</option>
                                     </select>
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">理论通话时间</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="174">
-                                    <input name="attr_value_list[]" type="text" value="6.9 小时" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">理论待机时间</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="175">
-                                    <input name="attr_value_list[]" type="text" value="363 小时" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">铃声</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="176">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">铃声格式</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="177">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
                                     <input type="hidden" name="attr_price_list[]" value="0">
                                 </td>
                             </tr>
@@ -575,22 +250,6 @@
                                         <option value="直板">直板</option>
                                         <option value="折叠">折叠</option>
                                     </select>
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">中文短消息</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="179">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
-                                    <input type="hidden" name="attr_price_list[]" value="0">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label">闹钟</td>
-                                <td>
-                                    <input type="hidden" name="attr_id_list[]" value="196">
-                                    <input name="attr_value_list[]" type="text" value="" size="40">
                                     <input type="hidden" name="attr_price_list[]" value="0">
                                 </td>
                             </tr>
@@ -619,7 +278,7 @@
                     <td>
                         <a href="javascript:;" onclick="addImg(this)">[+]</a>
                         图片描述 <input type="text" name="img_desc[]" size="20">
-                        上传文件 <input type="file" name="img_url[]">
+                        上传文件 <input type="file" name="img_url[]" id="input_multifileSelect">
                         <input type="text" size="40" value="或者输入外部图片链接地址" style="color:#aaa;" onfocus="if (this.value == '或者输入外部图片链接地址'){this.value='http://';this.style.color='#000';}" name="img_file[]">
                     </td>
                 </tr>
@@ -632,6 +291,7 @@
             </div>
             <input type="hidden" name="act" value="update">
         </form>
+        <div id="div_uploadedImgs"></div>
     </div>
 </div>
 
@@ -641,6 +301,7 @@
 </div>
 <script type="text/javascript" src="js/tab.js"></script>
 <script type="text/javascript">
+
     function addImg(obj){
         var src  = obj.parentNode.parentNode;
         var idx  = rowindex(src);
