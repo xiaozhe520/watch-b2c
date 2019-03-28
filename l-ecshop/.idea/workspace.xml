@@ -14,8 +14,8 @@
       <file leaf-file-name="GoodsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GoodsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+            <state relative-caret-position="437">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
                 <element signature="e#6#94#0#PHP" expanded="true" />
                 <element signature="e#135#163#0#PHP" expanded="true" />
@@ -273,12 +273,12 @@
       <workItem from="1553670742608" duration="210000" />
       <workItem from="1553670953676" duration="309000" />
       <workItem from="1553672282090" duration="5445000" />
-      <workItem from="1553736403023" duration="14337000" />
+      <workItem from="1553736403023" duration="17054000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42298000" />
+    <option name="totallyTimeSpent" value="45015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -589,8 +589,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GoodsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+        <state relative-caret-position="437">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <element signature="e#6#94#0#PHP" expanded="true" />
             <element signature="e#135#163#0#PHP" expanded="true" />
