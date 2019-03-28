@@ -24,9 +24,12 @@ Route::any('admin/main','Admin\AdminController@main');
 //商品方面路由
 Route::any('goods/list','Admin\GoodsController@list');
 Route::any('goods/add','Admin\GoodsController@add');
+<<<<<<< HEAD
 Route::any('goods/goods_xiang/{id}','Admin\GoodsController@goods_xiang');
 Route::any('goods/goods_xiu/{id}','Admin\GoodsController@xiu');
 Route::any('goods/goods_hui/{id}','Admin\GoodsController@hui');
+=======
+>>>>>>> remotes/origin/zzq
 
 //商品类型
 Route::any('goods_type/add','Admin\Goods_typeController@add');

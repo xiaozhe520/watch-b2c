@@ -47,7 +47,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+<<<<<<< HEAD
 
+=======
+        'upload' => [
+            'driver' => 'local',
+            //从上边复制  driver 不用改
+            'root' => public_path('app/uploads'),
+            //storage_path是在storage文件夹下 创建文件夹 app/uploads是在app下创建uploads文件夹
+        ],
+>>>>>>> remotes/origin/zzq
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
