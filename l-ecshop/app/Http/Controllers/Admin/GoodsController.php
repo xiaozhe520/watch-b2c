@@ -93,7 +93,7 @@ class GoodsController extends Controller
                 $is_best = Input::get('is_best');
                 $is_on_sale = Input::get('is_on_sale');
                 $is_alone_sale = Input::get('is_alone_sale');
-                $is_shipping = Input::get('.');
+                $is_shipping = Input::get('is_shipping');
                 $keywords = Input::get('keywords');
                 $goods_brief = Input::get('goods_brief');
                 $seller_note = Input::get('seller_note');
