@@ -16,8 +16,9 @@
 </h1>
 <!-- start add new category form -->
 <div class="main-div">
-  <form action="category.php" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+  <form action="{{ url('category/add_do')}}" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
 	 <table width="100%" id="general-table">
+	 @csrf
 		<tbody>
 			<tr>
 				<td class="label">分类名称:</td>
@@ -59,16 +60,13 @@
 				<td class="label">是否显示:</td>
 				<td><input type="radio" name="is_show" value="1" checked="true"> 是<input type="radio" name="is_show" value="0"> 否  </td>
 			</tr>
-			<tr>
-				<td class="label">是否显示在导航栏:</td>
-				<td><input type="radio" name="show_in_nav" value="1"> 是  <input type="radio" name="show_in_nav" value="0" checked="true"> 否    </td>
-			</tr>
+
 			<tr>
 				<td class="label">设置为首页推荐:</td>
 				<td>
-					<input type="checkbox" name="cat_recommend[]" value="1"> 精品          
-					<input type="checkbox" name="cat_recommend[]" value="2"> 最新          
-					<input type="checkbox" name="cat_recommend[]" value="3"> 热门       
+					<input type="checkbox" name="cat_recommend" value="1"> 精品          
+					<input type="checkbox" name="cat_recommend" value="2"> 最新          
+					<input type="checkbox" name="cat_recommend" value="3"> 热门       
 				</td>
 			</tr>
       <tr>
