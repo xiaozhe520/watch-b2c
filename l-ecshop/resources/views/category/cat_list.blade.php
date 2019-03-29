@@ -47,227 +47,25 @@
 					</td>
 				</tr>
 	<!--  start 这些代码是显示使用，没有格式化 开发时可删除-->
+	@foreach($data as $query =>$val)
     <tr align="center" class="1" id="1_5">
     <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
             <img src="images/menu_minus.gif" id="icon_1_5" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=5">双模手机</a></span>
+            <span><a href="goods.php?act=list&amp;cat_id=5"><?php echo $val->cat_name; ?></a></span>
         </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">2</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 5)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
+    <td width="10%" style="background-color: rgb(255, 255, 255);"><?php echo $val->parent_id; ?><?php echo $val->parent_id; ?></td>
+    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 5)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $val->cat_recommend; ?></span></td>
     <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 5)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 5)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 5)">5</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 5)">50</span></td>
+    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 5)"><?php echo $val->is_show; ?></td>
+    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 5)"><?php echo $val->measure_unit; ?></span></td>
+    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 5)"><?php echo $val->sort_order; ?></span></td>
     <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
       <a href="category.php?act=move&amp;cat_id=5">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=5">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(5, '您确认要删除这条记录吗?')" title="移除">移除</a>
+      <a href="upd?cat_id=<?php echo $val->cat_id; ?>">编辑</a> |
+      <a href="del?cat_id=<?php echo $val->cat_id; ?>" onclick="listTable.remove(5, '您确认要删除这条记录吗?')" title="移除">移除</a>
     </td>
   </tr>
-    <tr align="center" class="1" id="1_2">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_2" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=2">CDMA手机</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">0</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 2)" title="点击修改内容" style=""><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 2)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 2)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 2)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 2)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=2">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=2">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(2, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_3">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_3" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=3">GSM手机</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">12</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 3)" title="点击修改内容" style=""><!--  -->台<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 3)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 3)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 3)">4</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 3)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=3">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=3">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(3, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_4">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_4" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=4">3G手机</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">2</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 4)" title="点击修改内容" style=""><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 4)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 4)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 4)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 4)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=4">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=4">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(4, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="0" id="0_12">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_0_12" width="9" height="9" border="0" style="margin-left:0em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=12">充值卡</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">0</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 12)" title="点击修改内容" style=""><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 12)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 12)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 12)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 12)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=12">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=12">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(12, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_15">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_15" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=15">联通手机充值卡</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">2</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 15)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 15)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 15)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 15)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 15)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=15">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=15">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(15, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_13">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_13" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=13">小灵通/固话充值卡</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">2</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 13)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 13)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 13)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 13)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 13)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=13">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=13">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(13, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_14">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_14" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=14">移动手机充值卡</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">2</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 14)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 14)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 14)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 14)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 14)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=14">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=14">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(14, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="0" id="0_6">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_0_6" width="9" height="9" border="0" style="margin-left:0em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=6">手机配件</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">0</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 6)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 6)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 6)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 6)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 6)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=6">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=6">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(6, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_8">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_8" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=8">耳机</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">3</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 8)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 8)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 8)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 8)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 8)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=8">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=8">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(8, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_9">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_9" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=9">电池</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">0</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 9)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 9)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 9)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 9)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 9)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=9">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=9">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(9, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_11">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_11" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=11">读卡器和内存卡</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">2</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 11)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 11)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 11)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 11)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 11)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=11">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=11">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(11, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
-    <tr align="center" class="1" id="1_7">
-    <td align="left" class="first-cell" style="background-color: rgb(255, 255, 255);">
-            <img src="images/menu_minus.gif" id="icon_1_7" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)">
-            <span><a href="goods.php?act=list&amp;cat_id=7">充电器</a></span>
-        </td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);">0</td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_measure_unit', 7)"><!--  -->&nbsp;&nbsp;&nbsp;&nbsp;<!--  --></span></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/no.gif" onclick="listTable.toggle(this, 'toggle_show_in_nav', 7)"></td>
-    <td width="10%" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif" onclick="listTable.toggle(this, 'toggle_is_show', 7)"></td>
-    <td style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_grade', 7)">0</span></td>
-    <td width="10%" align="right" style="background-color: rgb(255, 255, 255);"><span onclick="listTable.edit(this, 'edit_sort_order', 7)">50</span></td>
-    <td width="24%" align="center" style="background-color: rgb(255, 255, 255);">
-      <a href="category.php?act=move&amp;cat_id=7">转移商品</a> |
-      <a href="category.php?act=edit&amp;cat_id=7">编辑</a> |
-      <a href="javascript:;" onclick="listTable.remove(7, '您确认要删除这条记录吗?')" title="移除">移除</a>
-    </td>
-  </tr>
+ @endforeach
   	<!--  end这些代码是显示使用，没有格式化 开发时可删除-->
 	</tbody>
   </table>

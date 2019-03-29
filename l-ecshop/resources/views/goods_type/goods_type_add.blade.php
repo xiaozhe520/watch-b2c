@@ -10,21 +10,12 @@
 
 <h1>
 <span class="action-span"><a href="{{ URL('goods_type/list') }}">商品类型列表</a></span>
-<<<<<<< HEAD
 <span class="action-span1"><a href="index.php?act=main">SHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 新建商品类型 </span>
-=======
-<span class="action-span1"><a href="{{ URL('index/main') }}">SHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 新建商品类型 </span>
->>>>>>> remotes/origin/ppp
 <div style="clear:both"></div>
 </h1>
 
 <div class="main-div">
-<<<<<<< HEAD
   <form action="" method="post" name="theForm" onsubmit="return validate();">
-=======
-  <form action="type_add" method="post" name="theForm" onsubmit="return validate();">
-    @csrf
->>>>>>> remotes/origin/ppp
     <table cellspacing="1" cellpadding="3" width="100%">
       <tbody><tr>
         <td class="label">商品类型名称:</td>
