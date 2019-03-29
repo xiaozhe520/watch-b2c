@@ -55,6 +55,7 @@ return [
             //storage_path是在storage文件夹下 创建文件夹 app/uploads是在app下创建uploads文件夹
         ],
 
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

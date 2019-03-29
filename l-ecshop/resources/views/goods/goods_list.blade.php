@@ -15,6 +15,7 @@
 </h1>
 
 <div class="form-div">
+
   <form action="list" method="post">
 	  @csrf
     <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH">
@@ -35,6 +36,7 @@
          
      <!-- 供货商 -->
      <select name="suppliers_id">
+
 		<option value="">全部</option>
 		<option value="1">北京供货商</option>
 		<option value="2">上海供货商</option>
@@ -119,6 +121,7 @@
 
 	<!-- 分页 -->
 
+
 		<div id="pull_right">
 			<div class="pull-right">
 							{{ $goods->links('common.page') }}
@@ -154,5 +157,5 @@
 </div>
 
 </body>
-</html>
 
+</html>

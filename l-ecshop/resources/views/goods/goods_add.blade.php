@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 
+
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
     <title></title>
@@ -22,12 +23,14 @@
 <div class="tab-div">
     <!-- tab bar -->
     <div id="tabbar-div">
+
         <p>
             <span class="tab-front" id="general-tab">通用信息</span>
             <span class="tab-back" id="mix-tab">其他信息</span>
             <span class="tab-back" id="properties-tab">商品属性</span>
             <span class="tab-back" id="gallery-tab">商品相册</span>
         </p>
+
     </div>
 
     <!-- tab body -->
@@ -327,7 +330,6 @@
             document.getElementById('gallery_' + result.content).style.display = 'none';
         }
     }
-
 </script>
 </body>
 </html>
